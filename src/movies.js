@@ -2,8 +2,8 @@
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors.
 // How could you "clean" a bit this array and make it unified (without duplicates)?
 function getAllDirectors(moviesArr) {
-    let result = moviesArr.map(function(el) {
-            return el.director
+    let result = moviesArr.map(function (el) {
+        return el.director
     })
     return result
 }
@@ -11,27 +11,27 @@ function getAllDirectors(moviesArr) {
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 function howManyMovies(moviesArray) {
-    let result = moviesArray.filter( function(el){
-        return el.director=== "Steven Spielberg"&& el.genre.indexOf('Drama')!==-1
+    let result = moviesArray.filter(function (el) {
+        return el.director === "Steven Spielberg" && el.genre.indexOf('Drama') !== -1
     })
     return result.length
 }
 
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(moviesArray) {
-    if(moviesArray.length === 0) {
+    if (moviesArray.length === 0) {
         return 0
     }
-    let sumScore = moviesArray.reduce(function(acc, el) {
-        if(!el.score) {
+    let sumScore = moviesArray.reduce(function (acc, el) {
+        if (!el.score) {
             el.score = 0
         }
         return acc + el.score
     }, 0)
     let avgScore = sumScore / moviesArray.length
-    return  parseFloat(avgScore.toFixed(2))
+    return parseFloat(avgScore.toFixed(2))
 
-    
+
 }
 
 
@@ -51,13 +51,40 @@ function dramaMoviesScore(moviesArray) {
 }
 
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
-function orderByYear(moviesArray) {}
+function orderByYear(moviesArray) {
+
+    let moviesArrayCopy = moviesArray.slice()
+
+    let year = moviesArrayCopy.sort((a, b) => {
+        if (a.year < b.year) {
+            return -1
+        } else if (a.year > b.year) {
+            return 1
+        } else {
+            // meme annee
+
+            
+                if (a.title < b.title) {
+                    return -1
+                } else if (a.title > b.title) {
+                    return 1
+                } else {
+                    return 0
+                }
+        }
+
+    })
+    return year
+
+
+
+}
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(moviesArray) {}
+function orderAlphabetically(moviesArray) { }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) {}
+function turnHoursToMinutes(moviesArray) { }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(moviesArray) {}
+function bestYearAvg(moviesArray) { }

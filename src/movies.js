@@ -63,27 +63,42 @@ function orderByYear(moviesArray) {
         } else {
             // meme annee
 
-            
-                if (a.title < b.title) {
-                    return -1
-                } else if (a.title > b.title) {
-                    return 1
-                } else {
-                    return 0
-                }
+
+            if (a.title < b.title) {
+                return -1
+            } else if (a.title > b.title) {
+                return 1
+            } else {
+                return 0
+            }
         }
     })
     return year
 }
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
- function orderAlphabetically(moviesArray) {
+function orderAlphabetically(moviesArray) {
     return moviesArray.slice().sort(function (a, b) {
-        return a.title.localeCompare(b.title)}).map(el => el.title).slice(0,20)
-      }
+        return a.title.localeCompare(b.title)
+    }).map(el => el.title).slice(0, 20)
+}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(moviesArray) { }
+function turnHoursToMinutes(moviesArray) {
+    let moviesArrayCopy = moviesArray.slice()
+    let newMovies = moviesArray.map((el) => {
+        let minutes = 0
+        if (el.duration.includes('h ') && el.duration.includes('min')) {
+            return minutes += Number(el.duration.split('h ')) * 60
+            return minutes+= Number(el.duration.split('min')) * 60
+        } else if (el.duration.includes('h')) {
+            return minutes += Number(el.duration.split('h'))*60
+        }
+
+    })
+    return newMovies
+
+}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(moviesArray) { }

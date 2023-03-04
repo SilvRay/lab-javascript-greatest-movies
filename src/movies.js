@@ -20,7 +20,7 @@ function howManyMovies(moviesArray) {
 // Iteration 3: All scores average - Get the average of all scores with 2 decimals
 function scoresAverage(moviesArray) {
     if (moviesArray.length === 0) {
-        return 0
+    return 0
     }
     let sumScore = moviesArray.reduce(function (acc, el) {
         if (!el.score) {
@@ -85,19 +85,7 @@ function orderAlphabetically(moviesArray) {
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {
-    let moviesArrayCopy = moviesArray.slice()
-    let newMovies = moviesArray.map((el) => {
-        let minutes = 0
-        if (el.duration.includes('h ') && el.duration.includes('min')) {
-            return minutes += Number(el.duration.split('h ')) * 60
-            return minutes+= Number(el.duration.split('min')) * 60
-        } else if (el.duration.includes('h')) {
-            return minutes += Number(el.duration.split('h'))*60
-        }
-
-    })
-    return newMovies
-
+    function turnHoursToMinutes(moviesArray) {
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
